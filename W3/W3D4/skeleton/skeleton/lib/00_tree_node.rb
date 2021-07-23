@@ -35,4 +35,15 @@ class PolyTreeNode
     return nil
   end
 
+  def bfs(target_value)   # [6, 3, 4, 5] unshift(6)
+    queue_arr = []
+    queue_arr << self
+    until queue_arr.empty?
+      curr = queue_arr.pop #dequeue
+      return curr if curr.value == target_value 
+      curr.children.each { |child| queue_arr.unshift(child) } #enqueue
+    end
+    nil
+  end
+
 end
