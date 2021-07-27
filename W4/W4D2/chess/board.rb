@@ -10,7 +10,7 @@ class Board
     @grid.each_with_index do |row, i|
       if rows_to_include.include?(i)
         row.each_with_index do |el, j|
-          @grid[i][j] = Piece.new
+          @grid[i][j] = Piece.new([i, j], self)
         end
       else
         row.each_with_index do |el, j|
@@ -53,4 +53,5 @@ class Board
 end
 
 b = Board.new
+p b
 
