@@ -5,6 +5,11 @@ class Rook < Piece
     super
   end
 
+  def symbol
+    
+  end
+  
+  private
   def move_dirs
 
   end
