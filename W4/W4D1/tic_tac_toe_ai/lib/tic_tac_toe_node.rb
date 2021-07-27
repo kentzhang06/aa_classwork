@@ -13,9 +13,9 @@ class TicTacToeNode
 
   def losing_node?(evaluator)
     if board.over?
-      return board.winner != evaluator && board.won? # nil != evaluator = true 
+      return board.winner != evaluator && board.won? # nil != evaluator = true
     end
-    
+
 
     all_moves = children
     if next_mover_mark == evaluator
@@ -30,7 +30,7 @@ class TicTacToeNode
       return board.winner == evaluator && board.won?
     end
     all_moves = children
-    
+
     if next_mover_mark == evaluator
       all_moves.any? { |move| move.winning_node?(evaluator) }
     else
@@ -63,6 +63,8 @@ class TicTacToeNode
     end
     all_moves
   end
+
+
 end
 
 b = Board.new
