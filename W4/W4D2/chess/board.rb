@@ -53,7 +53,4 @@ class Board
 end
 
 b = Board.new
-p b[[0,0]] #piece
-p b[[2,0]] #np
-p b[[7,0]] #piece
-b.move_piece([2,0], [4,0])
+
