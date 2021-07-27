@@ -21,6 +21,22 @@ class Manager < Employee
     @employees = []
   end
 
+  def add_employees(employee)
+    queue = [employee]
+    @employees << employee
+    until queue.empty?
+      ele = queue.shift
+    
+      if ele.is_a?(Manager)
+        ele.employees.each do |emp|
+          queue.push(emp)
+          
+          @employees << emp
+        end
+      end
+    end
+  end
+
   def bonus(multiplier)
     total = @employees.inject(0) { |acc, el| acc + el.salary }
     bonus = total * multiplier
@@ -28,19 +44,3 @@ class Manager < Employee
 
 
 end
-
-ned = Manager.new("Ned", "Founder", 1000000, nil)
-darren = Manager.new("Darren", "TA Manager", 78000, ned)
-shawna = Employee.new("Shawna", "TA", 12000, darren)
-david = Employee.new("David", "TA", 10000, darren)
-
-ned.employees << darren
-darren.employees << shawna << david
-
-p ned
-p darren
-
-p ned.bonus(5) # => 500_000
-p darren.bonus(4) # => 88_000
-p david.bonus(3) # => 30_000
-
