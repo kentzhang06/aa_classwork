@@ -17,7 +17,7 @@ module Slideable
   private
 
   def move_dirs
-
+    ['N', 'E', 'S', 'W', 'NE', 'NW', 'SE', 'SW']
   end
 
   def grow_unblocked_moves_in_dir(dx, dy)

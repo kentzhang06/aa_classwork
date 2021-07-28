@@ -1,8 +1,9 @@
 require 'singleton'
 class Piece
   attr_accessor :pos, :symbol
+  attr_reader :board, :color
 
-  def initialize(pos, board, symbol)
+  def initialize(pos, board, symbol='white')
     @color = symbol
     @pos = pos
     @board = board
@@ -12,9 +13,18 @@ class Piece
     print "Piece "
   end
 
+  def to_s
+
+  end
+
+  def empty?
+
+  end
+
+
+
   def valid_moves(start_pos)
     moves = []
-
   end
 end
 
