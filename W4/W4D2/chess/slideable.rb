@@ -11,7 +11,12 @@ module Slideable
   end
 
   def moves
-     
+    result = []
+    move_dirs.each do |dir|
+      row, col = dir
+      result += grow_unblocked_moves_in_dir(row, col)
+    end
+    result
   end
 
   private
@@ -21,26 +26,29 @@ module Slideable
   end
 
   def grow_unblocked_moves_in_dir(dx, dy)
-    row, col = pos
-    new_dx, new_dy = row + dx, col + dy
-    curr_piece = board[new_dx, new_dy]
-    while curr_piece.is_a?(NullPiece) && on_board?([new_dx, new_dy]) && color != curr_piece.color
-      
-    end
+    result = []
+    new_dx, new_dy = pos
 
+    while true
+      new_dx, new_dy = new_dx + dx, new_dy + dy #increment
+      new_pos = [new_dx, new_dy] #assign new_pos
+      curr_piece = board[new_pos] #store current piece
+
+      break if !on_board?(new_pos) || color == curr_piece.color # not on board, and current piece is not null and is the same color
+
+      result << new_pos #add new position to result array
+      if curr_piece.color != color && curr_piece.is_a?(Piece) && !curr_piece.is_a?(NullPiece) # if piece is occupied with opposite color
+        break
+      end
+      #break if curr_piece.color != color # if piece is occupied with opposite color
+    end
+    result
   end
 
   def on_board?(pos)
     row, col = pos
-    row >= 0 && row < 8 && col >= 0 col < 8
+    row >= 0 && row < 8 && col >= 0 && col < 8
   end
 
-  # in a loop:
-      # continually increment the piece's current row and current column to generate a new position
-      # stop looping if the new position is invalid (not on the board); the piece can't move in this direction
-      # if the new position is empty, the piece can move here, so add the new position to the moves array
-      # if the new position is occupied with a piece of the opposite color, the piece can move here (to capture the opposing piece), so add the new position to the moves array
-        # but, the piece cannot continue to move past this piece, so stop looping
-      # if the new position is occupied with a piece of the same color, stop looping
 end
 

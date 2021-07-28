@@ -19,6 +19,6 @@ class Rook < Piece
 
 end
 
-b = Board.new
-rook = Rook.new([0, 0], b, :white)
-p rook.moves
+# b = Board.new
+# rook = Rook.new([0, 0], b, :white)
+# p rook.moves
