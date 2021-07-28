@@ -31,8 +31,20 @@ end
 class BestFriend
   def initialize(name, yrs_known, fav_pastime)
     @name = name
-    @yrs_known = yrs_known
     @fav_pastime = fav_pastime
+    begin
+      @yrs_known = yrs_known_valid(yrs)
+    rescue
+
+    end
+  end
+
+  def yrs_known_valid(yrs)
+    if yrs >= 5
+      yrs
+    else
+      raise ArgumentError
+    end
   end
 
   def talk_about_friendship
