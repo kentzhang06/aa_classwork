@@ -1,4 +1,6 @@
 require 'singleton'
+require_relative 'board'
+
 class Piece
   attr_accessor :pos, :symbol
   attr_reader :board, :color
