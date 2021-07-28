@@ -32,19 +32,29 @@ class BestFriend
   def initialize(name, yrs_known, fav_pastime)
     @name = name
     @fav_pastime = fav_pastime
+    @yrs_known = yrs_known
     begin
-      @yrs_known = yrs_known_valid(yrs)
-    rescue
-
+      yrs_known_valid(yrs_known)
+      name_valid(name)
+      pastime(fav_pastime)
+    rescue ArgumentError => e
+      puts "#{e.message}"
+    ensure
+      puts "You aren't my best friend."
     end
+    #raise ArgumentError.new('Name must be one char or greater') if name.length < 1
   end
 
   def yrs_known_valid(yrs)
-    if yrs >= 5
-      yrs
-    else
-      raise ArgumentError
-    end
+    raise ArgumentError.new('Years known is less than 5') if yrs < 5
+  end
+
+  def name_valid(name)
+    raise ArgumentError.new('Not a valid name') if name.length <= 0
+  end
+
+  def pastime(pastime)
+    raise ArgumentError.new('Not a valid pastime') if pastime.length <= 0
   end
 
   def talk_about_friendship
@@ -62,5 +72,5 @@ end
 
 # reaction('cherry')
 # reaction('coffee')
-feed_me_a_fruit
+
 
