@@ -7,16 +7,16 @@ class Board
 
   def initialize
     @grid = Array.new(8) { Array.new(8) } #rows 0 1 6 7 have pieces
-    rows_to_include = [0, 1, 6, 7]
+    rows_white = [0, 1]
+    rows_black = [6, 7]
     @grid.each_with_index do |row, i|
-      if rows_to_include.include?(i)
-        row.each_with_index do |el, j|
-          @grid[i][j] = Piece.new([i, j], self)
+      if (rows_white + rows_black).include?(i)
+        (0..7).each do |j|
+          color = rows_white.include?(i) ? :white : :black
+          @grid[i][j] = Piece.new([i, j], self, color)
         end
       else
-        row.each_with_index do |el, j|
-          @grid[i][j] = NullPiece.instance
-        end
+        (0..7).each { |j| @grid[i][j] = NullPiece.instance}
       end
     end
   end

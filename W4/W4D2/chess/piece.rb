@@ -11,6 +11,11 @@ class Piece
     @board = board
   end
 
+  def on_board?(pos)
+    row, col = pos
+    row >= 0 && row < 8 && col >= 0 && col < 8
+  end
+
   def inspect
     print "Piece "
   end

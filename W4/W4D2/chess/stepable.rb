@@ -16,11 +16,6 @@ module Stepable
     def move_diffs
     end
 
-    def on_board?(pos)
-        row, col = pos
-        row >= 0 && row < 8 && col >= 0 && col < 8
-      end
-
     # create array to collect moves
 
     # iterate through each of the piece's possible move_diffs

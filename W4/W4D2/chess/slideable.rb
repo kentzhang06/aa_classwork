@@ -45,10 +45,5 @@ module Slideable
     result
   end
 
-  def on_board?(pos)
-    row, col = pos
-    row >= 0 && row < 8 && col >= 0 && col < 8
-  end
-
 end
 
