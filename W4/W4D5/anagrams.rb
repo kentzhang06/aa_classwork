@@ -40,5 +40,8 @@ def fourth_anagram?(str_1, str_2) # O(n)
   count.all? { |k, v| v == 0 }
 end
 
+
+
+
 # p fourth_anagram?("word", "bank")
 # p fourth_anagram?("elvis", "lives")
