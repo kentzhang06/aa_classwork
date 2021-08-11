@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  # def index
-  #   @users = User.all
-  #   render json: @users
-  # end
+  def index
+    @users = User.all
+    render json: @users
+  end
 
   def show
     @user = User.find_by(id: params[:id])
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params)
+    @user = User.new(params.require(:user).permit(:username, :email))
 
     if @user.save
       redirect_to user_url(@user)
@@ -32,8 +32,8 @@ class UsersController < ApplicationController
       return
     end
 
-    if @user.update(params)
-      redirect_to user_url(@user)
+    if @user.update(user_params)
+      redirect_to users_url
     else
       render json: {error: "Failed to update user"}
     end
@@ -44,14 +44,15 @@ class UsersController < ApplicationController
 
     if @user
       @user.destroy
-      redirect_to user_url
+      redirect_to users_url
+      # render json: @user
     else
-      render json: {error: "Failed to delete user"}
+      render json: {error: "Failed to delete user"}, status: 404
     end
   end
 
   private
-  # def user_params
-  #   params.require(:user).permit()
-  # end
+  def user_params
+    params.require(:user).permit(:username, :email)
+  end
 end
