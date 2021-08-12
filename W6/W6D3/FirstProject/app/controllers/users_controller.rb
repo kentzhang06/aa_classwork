@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     end
 
     if @user.update(user_params)
-      redirect_to users_url
+      redirect_to user_url(@user)
     else
       render json: {error: "Failed to update user"}
     end
