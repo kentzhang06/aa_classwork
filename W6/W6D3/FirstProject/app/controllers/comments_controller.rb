@@ -1,19 +1,19 @@
 class CommentsController < ApplicationController
 
     def index
-        # @comments = Comment.all
-        # render json: @comments
-        if params.has_key?(params[:user_id])
-
+        if params.has_key?(:user_id)
+          @comments = Comment.where(user_id: params[:user_id])
         elsif params.has_key?(:artwork_id)
-
+          @comments = Comment.where(artwork_id: params[:artwork_id])
         else
+          @comments = Comment.all
+        end
+        render json: @comments
     end
 
     def create
         @comment = Comment.new(comment_params)
         if @comment.save
-            # redirect_to comment_url(@comment)
             render json: @comment
         else
             render json: @comment.errors.full_messages, status: 422
@@ -23,7 +23,6 @@ class CommentsController < ApplicationController
     def destroy
         @comment = Comment.find_by(id: params[:id])
         if @comment.destroy
-            # @comment.destroy
             render json: @comment
         else
             render json: {error: "Comment not found"}, status: 404

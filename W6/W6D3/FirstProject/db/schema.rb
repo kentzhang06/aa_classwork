@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_08_12_211019) do
   create_table "artwork_shares", force: :cascade do |t|
     t.integer "artwork_id", null: false
     t.integer "viewer_id", null: false
-    t.index ["viewer_id", "artwork_id"], name: "index_artwork_shares_on_viewer_id_and_artwork_id", unique: true
+    t.index ["artwork_id", "viewer_id"], name: "index_artwork_shares_on_artwork_id_and_viewer_id", unique: true
   end
 
   create_table "artworks", force: :cascade do |t|

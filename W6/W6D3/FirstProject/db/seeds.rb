@@ -21,3 +21,7 @@ artwork3 = Artwork.create(title: 'Teacup Pig', image_url: 'https://i.redd.it/wia
 share1 = ArtworkShare.create(artwork_id: artwork1.id, viewer_id: user3.id)
 share2 = ArtworkShare.create(artwork_id: artwork3.id, viewer_id: user4.id)
 
+comment1 = Comment.create(user_id: user2.id, artwork_id: artwork1.id, body: "Cool Story Bro")
+comment2 = Comment.create(user_id: user3.id, artwork_id: artwork2.id, body: "Poop")
+comment3 = Comment.create(user_id: user4.id, artwork_id: artwork1.id, body: "App Academy is great")
+

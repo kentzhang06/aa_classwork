@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    if params.has_key?(:username)
+      @users = User.where('username LIKE ?', "%#{params[:username]}%")
+    else
+      @users = User.all
+    end
     render json: @users
   end
 
@@ -15,13 +19,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    # @user = User.new(params.require(:user).permit(:username))
     @user = User.new(user_params)
 
     if @user.save
       redirect_to user_url(@user)
     else
-      # render json: {error: 'User not created'}
       render json: @user.errors.full_messages, status: 422
     end
   end
