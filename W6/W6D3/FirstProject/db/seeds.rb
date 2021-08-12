@@ -6,9 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.delete_all
+Artwork.delete_all
+Artwork_Share.delete_all
 
-user1 = User.create(username: 'testuser1', email: 'test@gmail.com')
-user2 = User.create(username: 'testuser2', email: 'test2@gmail.com')
-user3 = User.create(username: 'testuser3', email: 'test3@gmail.com')
-user4 = User.create(username: 'testuser4', email: 'test4@gmail.com')
+user1 = User.create(username: 'DamianLechoszest')
+user2 = User.create(username: 'Carivory')
+user3 = User.create(username: 'HenryTungsten')
+user4 = User.create(username: 'testuser4')
+
+artwork1 = Artwork.create(title: 'Summer Nostalgia', image_url: 'https://i.imgur.com/gSLqTub.jpg', artist_id: user1.id)
+artwork2 = Artwork.create(title: 'Day Off', image_url: 'https://i.imgur.com/tbVf6dJ.jpg', artist_id: user2.id)
+artwork3 = Artwork.create(title: 'Teacup Pig', image_url: 'https://i.redd.it/wiaqbwrgg2w61.png',artist_id: user3.id)
+
+share1 = Artwork_Share.create(artwork_id: artwork1.id, viewer_id: user3.id)
+share2 = Artwork_Share.create(artwork_id: artwork3.id, viewer_id: user4.id)
 
