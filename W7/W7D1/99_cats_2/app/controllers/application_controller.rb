@@ -7,11 +7,11 @@ class ApplicationController < ActionController::Base
     end
 
     def require_logged_in
-      redirect_to new_session_url unless logged_in?
+      redirect_to cats_url unless logged_in?
     end
 
     def require_logged_out
-      redirect_to new_session_url if logged_in?
+      redirect_to cats_url if logged_in?
     end
 
     def login(user)
