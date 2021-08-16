@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :cats,
+    foreign_key: :user_id,
+    class_name: "Cat"
+
   def self.find_by_credentials(user_name, password)
     user = User.find_by(username: user_name)
     if user && user.is_password?(password)
