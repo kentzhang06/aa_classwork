@@ -1,0 +1,51 @@
+<% if cat.persisted? %>
+  <h2>EDIT CAT</h2>
+<% else %>
+  <h2>MAKE A NEW CAT</h2>
+<%end%>
+<form action="<%=(cat.persisted?) ? cat_url(cat) : cats_url%>" method="POST">
+  <% if cat.persisted?  %>
+    <input type="hidden" name="_method" value="PATCH"> 
+  <% end  %>
+
+  <label> Name:
+    <input type="text" name="cat[name]" value="<%=(cat.persisted?) ? "#{cat.name}" :'' %>">
+  </label>
+  <br>
+
+  <label> Sex:
+    <input type="radio" name="cat[sex]" id="M" value="M" <%= (cat.persisted? && cat.sex == "M") ? 'checked' : ''%>>
+    <label for="M"> M </label>
+    <input type="radio" name="cat[sex]" id="F" value="F" <%= (cat.persisted? && cat.sex == "F") ? 'checked' : ''%>>
+    <label for="F"> F </label>
+  </label>
+  <br>
+
+  <label> Color:
+  <select name="cat[color]">
+    <option disabled <%= !cat.persisted? ? 'selected' : ''%>>--Select a color--</option>
+    <% Cat::COLORS.each do |color| %>
+      <option value="<%=color%>" <%= (cat.persisted? && cat.color == color) ? 'selected' : ''%>><%=color.capitalize%></option>
+      
+    <% end %>
+  </select>
+  </label>
+  <br>
+
+  <label> Birth Date:
+    <input type="date" name="cat[birth_date]" <% cat.persisted? ? value="cat.birth_date" : "" %>>
+  </label>
+  <br>
+
+  <label> Description:
+  <br>
+    <textarea name="cat[description]" rows="4" cols="50">
+      <%= cat.description if cat.persisted?%>
+    </textarea>
+    
+  </label>
+  <br>
+
+  <input type="submit" value="<%=(cat.persisted?) ? ("Update Cat") : ("Create new cat") %>">
+
+</form>
