@@ -17,6 +17,10 @@ class Cat < ApplicationRecord
     class_name: :CatRentalRequest,
     dependent: :destroy
 
+  has_many :rental_requesters,
+  through: :rental_requests,
+  source: :requester
+
   belongs_to :owner,
     foreign_key: :user_id,
     class_name: "User"
