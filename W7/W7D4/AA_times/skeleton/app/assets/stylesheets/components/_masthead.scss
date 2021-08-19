@@ -24,6 +24,10 @@
 		color: $dark-gray;
 	}
 
+	#first_child {
+		font-weight: bold;
+	}
+
 	ul {
 		display: flex;
 	}
@@ -34,8 +38,11 @@
 	margin-top: 10px;
 }
 
-.masthead-links {
+.masthead-links ul {
 	display: flex;
+	// flex-direction: row;
+	// justify-content: center;
+	// align-items: row;
 	font-family: $sans-serif;
 	font-size: 11px;
 	margin-top: 10px;
@@ -43,7 +50,7 @@
 
 	li {
 		margin-left: 10px;
-		border-right: 1px solid $light-gray;
+		// border-right: 1px solid $light-gray;
 	}
 
 	button {
