@@ -1,0 +1,13 @@
+.sections-nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 2px solid $light-gray;
+}
+
+.sections-nav ul li {
+  padding: 1px;
+}
+
+.sections-nav ul li:hover {
+  background: $light-gray;
+}
