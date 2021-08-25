@@ -18,6 +18,5 @@ Array.prototype.myReduce = function(callback, initialValue) {
   } else {
     this.myEach(el => initialValue = callback(initialValue, el));
   }
-  
   return initialValue;
 }
