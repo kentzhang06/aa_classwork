@@ -1,102 +1,100 @@
 // Timing is Everything
-class Clock {
-  constructor() {
-    let date = new Date();
-    this.hours = date.getHours();
-    this.minutes = date.getMinutes();
-    this.seconds = date.getSeconds();
-    this.printTime();
-    setInterval(this._tick.bind(this), 1000);
-  }
+// class Clock {
+//   constructor() {
+//     let date = new Date();
+//     this.hours = date.getHours();
+//     this.minutes = date.getMinutes();
+//     this.seconds = date.getSeconds();
+//     this.printTime();
+//     setInterval(this._tick.bind(this), 1000);
+//   }
 
-  printTime() {
-    console.log(`${this.hours}:${this.minutes}:${this.seconds}`);
-  }
+//   printTime() {
+//     console.log(`${this.hours}:${this.minutes}:${this.seconds}`);
+//   }
 
-  _tick() {
-    this.seconds += 1;
-    this.printTime();
-  }
+//   _tick() {
+//     this.seconds += 1;
+//     this.printTime();
+//   }
 
-}
+// }
 
 // const clock = new Clock();
 
 //add Numbers
 
-const readline = require("readline");
-const reader = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+// const readline = require("readline");
+// const reader = readline.createInterface({
+//     input: process.stdin,
+//     output: process.stdout
+// });
 
-function addNumbers(sum, numsLeft, completionCallback) {
-  if (numsLeft === 0){
-    reader.close();
-    return completionCallback(sum);
-  }
+// function addNumbers(sum, numsLeft, completionCallback) {
+//   if (numsLeft === 0){
+//     reader.close();
+//     return completionCallback(sum);
+//   }
 
-  if (numsLeft > 0) {
-    reader.question("Enter a number: ", num => {
-      console.log(`The number you entered is: ${num}`);
-      sum += parseInt(num);
-      console.log(`Current sum is ${sum}`);
-      addNumbers(sum, numsLeft-1, completionCallback);
-    });
-    
-    
-  }
-}
+//   if (numsLeft > 0) {
+//     reader.question("Enter a number: ", num => {
+//       console.log(`The number you entered is: ${num}`);
+//       sum += parseInt(num);
+//       console.log(`Current sum is ${sum}`);
+//       addNumbers(sum, numsLeft-1, completionCallback);
+//     });
+//   }
+// }
 
 // addNumbers(0, 3, sum => console.log(`Total Sum: ${sum}`));
 
 
 // absurdBubbleSort
 
-function absurdBubbleSort (arr, sortCompletionCallback) {
-  function outerBubbleSortLoop(madeAnySwaps) {
-    if (madeAnySwaps){
-      innerBubbleSortLoop(arr, 0, false, outerBubbleSortLoop);
-    }else {
-      sortCompletionCallback(arr);
-    }
-  }
+// function absurdBubbleSort (arr, sortCompletionCallback) {
+//   function outerBubbleSortLoop(madeAnySwaps) {
+//     if (madeAnySwaps){
+//       innerBubbleSortLoop(arr, 0, false, outerBubbleSortLoop);
+//     }else {
+//       sortCompletionCallback(arr);
+//     }
+//   }
 
-  outerBubbleSortLoop(true);
-}
+//   outerBubbleSortLoop(true);
+// }
 
-function askIfGreaterThan (el1, el2, callback) {
-  console.log(`${el1} > ${el2} `)
-  reader.question("Enter 'yes' or 'no': ", input => {
-    console.log(`${input}`);
-    if (input === 'yes'){
-      callback(true);
-    }else {
-      callback(false);
-    }
-  });
-}
+// function askIfGreaterThan (el1, el2, callback) {
+//   console.log(`${el1} > ${el2} `)
+//   reader.question("Enter 'yes' or 'no': ", input => {
+//     console.log(`${input}`);
+//     if (input === 'yes'){
+//       callback(true);
+//     }else {
+//       callback(false);
+//     }
+//   });
+// }
 
-function innerBubbleSortLoop(arr, i, madeAnySwaps, outerBubbleSortLoop) {
-  if (i === (arr.length - 1)) {
-    console.log("i == 0");
-    return outerBubbleSortLoop(madeAnySwaps);
-  }
+// function innerBubbleSortLoop(arr, i, madeAnySwaps, outerBubbleSortLoop) {
+//   if (i === (arr.length - 1)) {
+//     console.log("i == 0");
+//     return outerBubbleSortLoop(madeAnySwaps);
+//   }
 
-  console.log("if statement")
-  askIfGreaterThan(arr[i], arr[i+1], function(swap){
-    console.log("swap");
-    console.log(swap);
-    if (swap) {
-      let temp = arr[i];
-      arr[i] = arr[i+1];
-      arr[i+1] = temp;
-      madeAnySwaps = true;
-    }
-    console.log("innerloop");
-    innerBubbleSortLoop(arr, i+1, madeAnySwaps, outerBubbleSortLoop);
-  });
-}
+//   console.log("if statement")
+//   askIfGreaterThan(arr[i], arr[i+1], function(swap){
+//     console.log("swap");
+//     console.log(swap);
+//     if (swap) {
+//       let temp = arr[i];
+//       arr[i] = arr[i+1];
+//       arr[i+1] = temp;
+//       madeAnySwaps = true;
+//     }
+//     console.log("innerloop");
+//     innerBubbleSortLoop(arr, i+1, madeAnySwaps, outerBubbleSortLoop);
+//   });
+// }
 
 // absurdBubbleSort([3, 2, 1], function(arr) {
 //   console.log("Sorted array: " + JSON.stringify(arr));
@@ -105,26 +103,63 @@ function innerBubbleSortLoop(arr, i, madeAnySwaps, outerBubbleSortLoop) {
 
 // Function Calling
 
-Function.prototype.myBind(context) = {
+// Function.prototype.myBind = function(context){
+//   debugger;
+//   return () => {this.apply(context)};
+// };
 
-}
+// class Lamp {
+//   constructor() {
+//     this.name = "a lamp";
+//   }
+// }
 
-class Lamp {
-  constructor() {
-    this.name = "a lamp";
+// const turnOn = function() {
+//   console.log("Turning on " + this.name);
+// };
+
+// const lamp = new Lamp();
+
+// turnOn(); // should not work the way we want it to
+
+// const boundTurnOn = turnOn.bind(lamp);
+// const myBoundTurnOn = turnOn.myBind(lamp);
+
+// boundTurnOn(); // should say "Turning on a lamp"
+// myBoundTurnOn(); // should say "Turning on a lamp"
+// reader.close();
+
+// myThrottle and myDebounce
+
+Function.prototype.myThrottle = function(interval) {
+  debugger
+  let tooSoon = false;
+  let that = this;
+
+  return () => {
+    if (tooSoon === false){
+      tooSoon = true;
+      setTimeout(() => {tooSoon = false}, interval);
+    }
   }
 }
 
-const turnOn = function() {
-  console.log("Turning on " + this.name);
-};
+class Neuron {
+  fire() {
+    console.log("Firing!");
+  }
+}
 
-const lamp = new Lamp();
+const neuron = new Neuron();
+// When we create a new Neuron,
+// we can call #fire as frequently as we want
 
-turnOn(); // should not work the way we want it to
+// The following code will try to #fire the neuron every 10ms. Try it in the console:
+const interval = setInterval(() => {
+  neuron.fire();
+}, 10);
 
-const boundTurnOn = turnOn.bind(lamp);
-const myBoundTurnOn = turnOn.myBind(lamp);
+// You can use clearInterval to stop the firing:
+clearInterval(interval);
 
-boundTurnOn(); // should say "Turning on a lamp"
-myBoundTurnOn(); // should say "Turning on a lamp"
+neuron.fire = neuron.fire.myThrottle(500);
