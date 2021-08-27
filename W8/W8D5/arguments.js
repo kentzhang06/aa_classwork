@@ -88,3 +88,60 @@ Function.prototype.myBind = function(ctx, ...bindArgs) {
 // // Pavlov says meow to me!
 // // true
 
+function curriedSum(numArgs) {
+  const numbers = [];
+
+  return function _curriedSum(n1) {
+    numbers.push(n1);
+    if (numbers.length === numArgs) {
+      return sum(...numbers);
+    } else {
+      return _curriedSum;
+    }
+  }
+}
+
+// const sum2 = curriedSum(4);
+// console.log(sum2(5)(30)(20)(1));
+
+Function.prototype.curry = function(numArgs) {
+  const args = [];
+  const that = this;
+
+  return function _curry(arg) {
+    args.push(arg);
+    if (args.length === numArgs) {
+      return that.apply(that, args)
+    } else {
+      return _curry;
+    }
+  }
+}
+
+Function.prototype.curry2 = function(numArgs) {
+  const args = [];
+  const that = this;
+
+  return function _curry(arg) {
+    args.push(arg);
+    if (args.length === numArgs) {
+      return that.call(that, ...args)
+    } else {
+      return _curry;
+    }
+  }
+}
+
+// foo(arg1, arg2, arg3);
+// const fooCurried = foo.curry(4);
+// fooCurried(arg1)(arg2)(arg3);
+
+function sumThree(n1, n2, n3) {
+  return n1 + n2 + n3;
+}
+
+const sumThreeCurried = sumThree.curry(3);
+console.log(sumThreeCurried(2)(4)(6));
+
+const sumThreeCurried2 = sumThree.curry2(3);
+console.log(sumThreeCurried2(2)(4)(6));
