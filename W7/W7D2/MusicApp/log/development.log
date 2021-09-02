@@ -4562,3 +4562,5 @@ Processing by BandsController#index as HTML
 Completed 200 OK in 31ms (Views: 30.3ms | ActiveRecord: 0.3ms)
 
 
+  [1m[35m (694.8ms)[0m  [1m[35mCREATE DATABASE "music_db_test" ENCODING = 'utf8'[0m
+  ↳ bin/rails:9
