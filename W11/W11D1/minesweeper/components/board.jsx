@@ -22,7 +22,8 @@ class Board extends React.Component {
     
     const boardFunc = this.props.board.grid.map((row, i) => {
       return (
-        <div key={i}>{rowFunc(row)}</div>
+        <div> {row} hi </div>
+        // <div key={i}>{rowFunc(row)}</div>
       );
     });
     
