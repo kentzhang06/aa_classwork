@@ -20,7 +20,7 @@ class Weather extends React.Component {
     let request = new XMLHttpRequest();
     let lat = position.coords.latitude;
     let long = position.coords.longitude;
-    let API = '9ea12ec41d3c35e251a19aa5e883d597';
+    let API = '';
     let that = this;
 
     request.onreadystatechange = function() {
