@@ -18,12 +18,10 @@ class TodoForm extends React.Component {
     }
 
     updateTitle(e) {
-        console.log(e);
         this.setState({ title: e.target.value})
     }
 
     updateBody(e){
-        console.log(e);
         this.setState({ body: e.target.value })
     }
 

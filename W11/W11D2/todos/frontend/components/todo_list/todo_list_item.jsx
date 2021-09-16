@@ -16,7 +16,6 @@ class TodoListItem extends React.Component{
   }
 
   showDetails() {
-    debugger;
     if (this.state.detail){
       this.setState({detail: false});
     }else {
