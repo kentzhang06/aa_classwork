@@ -29,7 +29,7 @@ class TodoForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.receivedTodo(this.state);
+        this.props.receiveTodo(this.state);
     }
 
     render(){

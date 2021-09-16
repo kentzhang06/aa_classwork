@@ -5,7 +5,7 @@ import { receiveStep, receiveSteps, removeStep } from "./actions/step_actions";
 import configureStore from "./store/store";
 import App from "./components/app";
 import Root from "./components/root";
-import allTodos from "./reducers/selectors";
+import {allTodos, stepsByTodoId} from "./reducers/selectors";
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById("root");
@@ -21,4 +21,5 @@ document.addEventListener('DOMContentLoaded', () => {
   window.removeStep = removeStep;
   
   window.allTodos = allTodos;
+  window.stepsByTodoId = stepsByTodoId;
 });
