@@ -7,15 +7,14 @@ import { selectAllPokemon } from './reducers/selectors';
 import Root from './components/root';
 
 document.addEventListener("DOMContentLoaded", () => {
-    const store = configureStore();
     const root = document.getElementById("root");
+    const store = configureStore();
     ReactDOM.render(<Root store={store}/>, root);
 
     window.fetchAllPokemon = APIUtil.fetchAllPokemon;
     window.receiveAllPokemon = receiveAllPokemon;
     window.requestAllPokemon = requestAllPokemon;
     window.selectAllPokemon = selectAllPokemon;
-    window.store = configureStore();
     window.getState = store.getState;
     window.dispatch = store.dispatch;
 })

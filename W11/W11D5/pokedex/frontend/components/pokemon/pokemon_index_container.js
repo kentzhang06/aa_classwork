@@ -4,16 +4,17 @@ import { selectAllPokemon } from "../../reducers/selectors";
 import PokemonIndex from './pokemon_index';
 
 
-const mapStateToProps = state => ({
-  // piece of state that container subscribes to
-  pokemon: selectAllPokemon(state)
-});
+const mapStateToProps = state => {
+  return {
+    // piece of state that container subscribes to
+    pokemon: selectAllPokemon(state)
+  }
+};
 
-const mapDispatchToProps = dispatch => ({
-  requestAllPokemon: () => dispatch(requestAllPokemon())
-});
+const mapDispatchToProps = dispatch => {
+  return {
+    requestAllPokemon: () => dispatch(requestAllPokemon())
+  }
+};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PokemonIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(PokemonIndex);
