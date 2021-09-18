@@ -83,8 +83,7 @@ var PokemonIndex = /*#__PURE__*/function (_React$Component) {
   _createClass(PokemonIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      console.log(this.props.pokemon);
-      this.props.requestAllPokemon;
+      this.props.requestAllPokemon();
     }
   }, {
     key: "render",
@@ -33981,6 +33980,7 @@ document.addEventListener("DOMContentLoaded", function () {
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_root__WEBPACK_IMPORTED_MODULE_6__["default"], {
     store: store
   }), root);
+  window.store = store;
   window.fetchAllPokemon = _util_api_util__WEBPACK_IMPORTED_MODULE_2__.fetchAllPokemon;
   window.receiveAllPokemon = _actions_pokemon_actions__WEBPACK_IMPORTED_MODULE_3__.receiveAllPokemon;
   window.requestAllPokemon = _actions_pokemon_actions__WEBPACK_IMPORTED_MODULE_3__.requestAllPokemon;

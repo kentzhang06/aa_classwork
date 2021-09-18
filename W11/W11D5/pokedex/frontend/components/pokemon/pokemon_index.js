@@ -7,8 +7,7 @@ class PokemonIndex extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.pokemon)
-    this.props.requestAllPokemon;
+    this.props.requestAllPokemon();
   }
 
   render() {
