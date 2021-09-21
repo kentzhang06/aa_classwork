@@ -1,34 +1,28 @@
 const path = require('path');
 
-
 module.exports = {
   context: __dirname,
-  entry: 'frontend/index.jsx',   
+  entry: './frontend/bench_bnb.jsx',
   output: {
     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
     filename: 'bundle.js'
   },
-  devtool: 'source-map',     
-  resolve: { 
-    extensions: [".js", ".jsx", "*"]   
+  resolve: {
+    extensions: ['.js', '.jsx', '*']
   },
-  module: { 
+  module: {
     rules: [
-      { 
-        test: /\.jsx?$/,  
+      {
+        test: /\.jsx?$/,
         exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
           options: {
-
-            presets: [
-              ['@babel/preset-env', '@babel/react']
-            ] ,
-          },
+            presets: ['@babel/env', '@babel/react']
+          }
         },
-
-      },
-    ],
-
-  }
+      }
+    ]
+  },
+  devtool: 'source-map'
 };
