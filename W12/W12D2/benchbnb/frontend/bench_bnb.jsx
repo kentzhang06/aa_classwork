@@ -2,7 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from "./store/store";
 import Root from "./components/root";
-import {login, signup, logout} from "./actions/session_actions"
+import {login, signup, logout} from "./actions/session_actions";
+// import {fetchBenches} from "./util/bench_api_util";
+import {fetchBenches} from "./actions/bench_actions";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -27,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.login = login;
   window.signup = signup;
   window.logout = logout;
+  window.fetchBenches = fetchBenches;
   // TESTING END
 
   const root = document.getElementById("root");
