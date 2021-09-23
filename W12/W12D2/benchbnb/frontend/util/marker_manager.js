@@ -6,9 +6,24 @@ export default class MarkerManager {
   }
 
   updateMarkers(benches) {
+    let benchObj = {};
+
     benches.forEach((bench) => {
       this.createMarkerFromBench(bench);
+      benchObj[bench.id] = bench;
     });
+
+    Object.keys(this.markers).forEach((id) => {
+      if (!benchObj[id]) {
+        this.removeMarker(this.markers[id]);
+        delete this.markers[id];
+      }
+    })
+    
+  }
+
+  removeMarker(marker) {
+    marker.setMap(null);
   }
 
   createMarkerFromBench(bench) {
