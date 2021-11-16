@@ -40,8 +40,36 @@ class Trie {
       }
    }
 
-   searchRecur(word) {
-     
+   searchRecur(word, root=this.root) {
+      let letter = word[0];
+
+      if (word.length === 0) {
+        if (root.isTerminal) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+
+      if (letter in root.children) {
+        return this.searchRecur(word.slice(1), root.children[letter]);
+      }else {
+        return false;
+      }
+   }
+
+   searchIter(word) {
+      let root = this.root;
+
+      for(let i=0; i < word.length; i++) {
+        if (!(word[i] in root.children)) {
+          return false;
+        }
+        root = root.children[word[i]];
+      }
+
+      return root.isTerminal;
    }
 }
 
