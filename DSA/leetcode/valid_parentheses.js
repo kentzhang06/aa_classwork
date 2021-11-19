@@ -22,3 +22,5 @@ var isValid = function (s) {
   if (stacks.length) return false;
   return true;
 };
+
+// went over with austin in mock interview
