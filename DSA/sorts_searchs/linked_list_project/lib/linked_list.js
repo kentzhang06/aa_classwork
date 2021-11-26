@@ -133,7 +133,12 @@ class LinkedList {
 
     // TODO: Implement the set method here
     set(index, val) {
-
+      const nodeFound = this.get(index);
+      if (nodeFound) {
+        nodeFound.value = val;
+        return true;
+      }
+      return false;
     }
 
     // TODO: Implement the insert method here
