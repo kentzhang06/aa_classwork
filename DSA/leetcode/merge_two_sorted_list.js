@@ -1,4 +1,4 @@
-// O(n + m) time complexity, 
+// O(n + m) time complexity, O(n + m) space complexity
 var mergeTwoLists = function (list1, list2) {
 
   if (!list1) {
