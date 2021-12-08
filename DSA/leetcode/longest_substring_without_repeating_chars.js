@@ -20,3 +20,47 @@ var lengthOfLongestSubstring = function (s) {
 
   return longestLength;
 };
+
+var lengthOfLongestSubstring = function (s) {
+  let maxLen = 0, curr = 0;
+  let hash = {};
+
+  if(s.length < 2) {
+    return s.length;
+  }
+
+  for(let i=0; i < s.length; i++) {
+    //if curr character is not in hash
+    if(hash[s[i]] == null) {
+      curr += 1;
+    // when you hit a character that repeats
+    } else {
+      curr = Math.min(i - hash[s[i]], curr+1);
+    }
+    maxLen = Math.max(maxLen, curr);
+    // always save the index
+    hash[s[i]] = i;
+  }
+
+  return maxLen;
+
+}
+
+var lengthOfLongestSubstring = function (s) {
+  let set = new Set();
+  let longest = 0;
+  let j = 0; i = 0;
+
+  while(i < s.length && j < s.length) {
+    if(!set.has(s[j])) {
+      set.add(s[j]);
+      longest = Math.max(longest, j - i + 1);
+      j++;
+    } else {
+      set.delete(s[i]);
+      i++;
+    }
+  }
+
+  return longest;
+}
