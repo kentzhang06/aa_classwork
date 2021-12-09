@@ -1,3 +1,6 @@
+// O(n) time
+// O(n) space
+
 var containsDuplicate = function (nums) {
   let set = new Set();
 
