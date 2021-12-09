@@ -46,6 +46,7 @@ var lengthOfLongestSubstring = function (s) {
 
 }
 
+//sliding window with set
 var lengthOfLongestSubstring = function (s) {
   let set = new Set();
   let longest = 0;
