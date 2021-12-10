@@ -1,3 +1,4 @@
+// O(n) time complexity O(1) space
 var reorderList = function (head) {
   // hash to keep track of node and its index
   // iterate through copy of head to populate hash
