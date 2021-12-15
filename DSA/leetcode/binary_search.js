@@ -3,6 +3,7 @@
 //  * @param {number} target
 //  * @return {number}
 //  */
+// recursive approach requires more space
 var search = function (nums, target) {
   let midIdx = Math.floor(nums.length / 2);
   let mid = nums[midIdx];
@@ -25,8 +26,7 @@ var search = function (nums, target) {
   }
 };
 
-//iterative
-
+//iterative, requires less space both O(logn) time complexity
 var search = function (nums, target) {
   let left = 0,
     right = nums.length - 1;
